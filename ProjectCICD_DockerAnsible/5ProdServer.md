@@ -1,13 +1,13 @@
-gi## WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
+### WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
 ### DevOps Automation
 
-DevOps automation refers to the use of tools, processes, and systems to automate various aspects of software development and IT operations. The goal of DevOps automation is to improve efficiency, speed up the software delivery process, and ensure consistent and reliable operations. Some examples of DevOps automation include continuous integration and delivery (CI/CD), infrastructure as code (IaC), configuration management, and monitoring and logging.
+A Production server in DevOps is a server that hosts the live, publicly accessible version of an application or service. The production environment is where the actual end-users interact with the application or service, and it's the most critical part of the delivery pipeline. The production server needs to be highly available, scalable, and secure, and it's often managed using DevOps principles and practices to ensure that it meets the needs of the business.
 
 
 ### INTRODUCTION TO PRODUCTION SERVER SERVER
 
 #### Task
-**Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website build from git to the Application were it is containarized by docker to Production with Ansible** 
+Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website build from git to the Application were it is containarized by docker to Production with Ansible 
 
 SERVER REQUIRMENTS:
 - Java

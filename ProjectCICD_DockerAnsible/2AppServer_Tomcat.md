@@ -1,18 +1,19 @@
 ## WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
-### DevOps Automation
+### DevOps Automation : Application Server
 
-DevOps automation refers to the use of tools, processes, and systems to automate various aspects of software development and IT operations. The goal of DevOps automation is to improve efficiency, speed up the software delivery process, and ensure consistent and reliable operations. Some examples of DevOps automation include continuous integration and delivery (CI/CD), infrastructure as code (IaC), configuration management, and monitoring and logging.
+
+In DevOps, application servers are a key component of the software delivery process, providing a platform for deploying and running applications. An application server is a type of server that is specifically designed to host and manage web-based applications. Application servers provide a platform for deploying web-based applications, allowing DevOps teams to easily manage and update applications throughout the development and deployment lifecycle. It can be integrated with other DevOps tools, such as CI/CD pipelines, to streamline the deployment process and ensure that applications are released quickly and with minimal errors.
 
 
 ### INTRODUCTION TO APPLICATION SERVER(TOMCAT)
 
 #### Task
-**Build and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website from git to the Application Tomcat Server which has tomcat installed on it** 
+Build and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website from git to the Application Tomcat Server which has tomcat installed on it
 
 
 SERVER REQUIRMENTS:
-- JAVA
-- TOMCAT
+- Java
+- Tomcat
 
 ![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
@@ -69,7 +70,6 @@ ls
 ```
  tar -zxvf apache-tomcat-10.0.27.tar.gz
  
-
 ```
 
 - Copy the unzipped file to `/opt`

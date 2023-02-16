@@ -1,26 +1,37 @@
 ## WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
 ### DevOps Automation
 
-DevOps automation refers to the use of tools, processes, and systems to automate various aspects of software development and IT operations. The goal of DevOps automation is to improve efficiency, speed up the software delivery process, and ensure consistent and reliable operations. Some examples of DevOps automation include continuous integration and delivery (CI/CD), infrastructure as code (IaC), configuration management, and monitoring and logging.
+DevOps automation refers to the practice of using automation tools and techniques to streamline and optimize the processes involved in software development, testing, and deployment. 
 
-According to Circle Continuous integration (CI) is a software development method that accelerates development while assuring the quality of the code that teams deliver. Developers continuously commit code in tiny increments (at least daily, if not multiple times per day), which is then automatically built and tested before being merged into the common repository.
+DevOps automation involves using tools such as Continuous Integration and Continuous Deployment (CI/CD) pipelines, configuration management tools, and infrastructure as code (IaC) to automate the entire software delivery process. This can include automating the build, testing, and deployment of applications, as well as the provisioning and management of infrastructure.
 
-### INTRODUCTION TO JENKINS
+By automating these processes, DevOps teams can reduce the manual effort and errors involved in software development, accelerate the release of new features and updates, and improve the quality and stability of their applications. It also enables teams to easily scale their development and infrastructure operations to meet changing business requirements.
+
+### Introduction to Workstation servers 
+
+Your workstation server are used to build and test software applications, allowing DevOps teams to identify and resolve bugs and issues before deployment. It is used to manage infrastructure as code, allowing DevOps teams to automate the build, deployment and management of infrastructure components such as servers, networks, and storage.
+
 
 #### Task
-**Build and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server, Application Server and a Production server, by which the task is configured automatically to publish source code updates from GIT to Application Server and then to the Production Server.**
+Build and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server, Application Server and a Production server, by which the task is configured automatically to publish source code updates from GIT to Application Server and then to the Production Server.
 
-SERVER REQUIRMENTS:
-- JAVA
-- GIT
-- WGET
-- MAVEN
-- JENKINS
+**GENERAL CICD REQUIRMENTS**
+Create 3 Redhat servers namely:
+workstation server,
+application server,
+production server,
+
+**WORKSERVER REQUIRMENTS:**
+- Java
+- Git
+- Wget
+- Maven
+- Jenkins
 
 ![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
 
-#### Step 1- Install Jenkins 
+#### Step 1- Create Password for User
 1. Create an AWS EC2 server based on Redhat9 Server and name it "Workstation Server"
 2. Update your server
 

@@ -6,7 +6,7 @@
 
 
 
-#### Step 2 - Configure Jenkins to retrieve source codes from GitHub using Webhooks
+#### Step 1 - Configure Jenkins to retrieve source codes from GitHub using Webhooks
 Here you configure a simple Jenkins job/project. This job will be triggered by GitHub webhooks and will execute a ‘build’ task to retrieve codes from GitHub and store it locally on Jenkins server.
 
 1. Enable webhooks in your GitHub repository settings: 
@@ -52,7 +52,8 @@ Under **Build triggers** select: Github trigger for GITScm polling
 
 11. By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/`
 
-#### Step 3 – Configure Jenkins to copy files to NFS server via SSH
+
+#### Step 2 – Configure Jenkins to copy files to NFS server via SSH
 
 **Publish over SSh**
 

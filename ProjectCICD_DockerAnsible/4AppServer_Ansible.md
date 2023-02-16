@@ -1,20 +1,20 @@
 ## WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
-### DevOps Automation
+### DevOps Automation: App Server with Ansible
 
-DevOps automation refers to the use of tools, processes, and systems to automate various aspects of software development and IT operations. The goal of DevOps automation is to improve efficiency, speed up the software delivery process, and ensure consistent and reliable operations. Some examples of DevOps automation include continuous integration and delivery (CI/CD), infrastructure as code (IaC), configuration management, and monitoring and logging.
+Ansible is a popular automation tool used in DevOps to manage the deployment and configuration of software applications. When used together with an application server, Ansible can provide a powerful platform for automating the deployment and management of web-based applications. it is used to manage the configuration of applications running on an application server. This can include managing settings such as database connections, security settings, and application-specific configuration files.
 
 
 ### INTRODUCTION TO APPLICATION SERVER(Ansible) AND PRODUCTION SERVER
 
 #### Task
-**Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website build from git to the Application were it is containarized by docker to Production with Ansible** 
+Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website build from git to the Application were it is containarized by docker to Production with Ansible
 
 SERVER REQUIRMENTS:
-- JAVA
-- TOMCAT
-- DOCKER
-- PYTHON
-- ANSIBLE
+- Java
+- Tomcat
+- Docker
+- Python
+- Ansible
 
 
 ![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)

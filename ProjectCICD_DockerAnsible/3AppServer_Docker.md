@@ -1,18 +1,22 @@
 ## WEBAPPS WEBSITE DEPLOYMENT AUTOMATION WITH CONTINUOUS INTEGRATION and CONTINOUS DEPLOYMENT. 
-### DevOps Automation
+### DevOps Automation : Application Server with Docker
 
-DevOps automation refers to the use of tools, processes, and systems to automate various aspects of software development and IT operations. The goal of DevOps automation is to improve efficiency, speed up the software delivery process, and ensure consistent and reliable operations. Some examples of DevOps automation include continuous integration and delivery (CI/CD), infrastructure as code (IaC), configuration management, and monitoring and logging.
+Docker is a popular containerization technology that has become increasingly important in DevOps. When used together with an application server, Docker can provide a powerful platform for managing and deploying web-based applications in a DevOps environment. This Application servers is used to create containerized applications that can be deployed and managed using Docker. This approach can simplify the deployment process and make it easier to manage multiple versions of an application.
+
+Docker containers can be used to isolate application dependencies, ensuring that each application has the required libraries and resources. This can simplify the deployment process and help avoid version conflicts.
+
+Docker containers can be easily scaled up or down, depending on demand. This can help ensure that applications can handle varying levels of traffic and provide a good user experience.
 
 
 ### INTRODUCTION TO APPLICATION SERVER(DOCKER)
 
 #### Task
-**Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website from git to the Application Tomcat Server which which is then containerized by docker then lunched** 
+Build,Conternarize and Lunch the Webapps site through a CICI pipline. This pipeline consists of a Workstation Server pulling the website from git to the Application Tomcat Server which which is then containerized by docker then lunched
 
 SERVER REQUIRMENTS:
-- JAVA
-- TOMCAT
-- DOCKER
+- Java
+- Tomcat
+- Docker
 
 ![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
