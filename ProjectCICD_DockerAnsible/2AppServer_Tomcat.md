@@ -195,11 +195,6 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 
 3. Connect your GitHub repository, copy the repository URL from the repository
 
-![19](https://user-images.githubusercontent.com/101978292/219959603-83f715d3-8c04-4cab-949a-27c775c414a8.jpg)
-
-![20](https://user-images.githubusercontent.com/101978292/219959617-b46eba16-3314-4007-b757-f8a6131ca6b1.jpg)
-
-
 4. In configuration of your Jenkins freestyle project under Source Code Management select **Git repository**, provide there the link to your Itern GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
 
 
@@ -210,8 +205,7 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 
 
 5. Click **Configure** your job/project and add and save these two configurations:
-
-``` 
+ 
 
 
 6. Save the configuration and let us try to run the build. 
