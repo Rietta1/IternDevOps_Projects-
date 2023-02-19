@@ -15,7 +15,6 @@ SERVER REQUIRMENTS:
 - Java
 - Tomcat
 
-![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
 
 #### Step 1- Setup Server and create a user password
@@ -78,7 +77,7 @@ ls
  tar -zxvf apache-tomcat-10.0.27.tar.gz
  
 ```
-
+![2](https://user-images.githubusercontent.com/101978292/219960759-4c93f081-39cc-4514-a89f-d8e637418020.jpg)
 
 
 
@@ -225,7 +224,7 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 
 
 
-9. By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/webapps.war_github/builds/<build_number>/archive/`
+9. *By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/webapps.war_github/builds/<build_number>/archive/`*
 
 10. go to the server and check for the  build 
  
