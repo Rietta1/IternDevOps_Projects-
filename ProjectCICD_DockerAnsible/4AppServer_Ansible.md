@@ -269,7 +269,7 @@ sudo vi devops.yml
 
 ```
 
-![1](https://user-images.githubusercontent.com/101978292/219963839-6e55ae4f-097a-4389-af69-27640b14bcf6.jpg)
+
 
 
 8. Install  netstat to enable you check what process is using your server
@@ -279,6 +279,8 @@ sudo yum install net-tools
 ```
 
 *You can use yaml validator to valid your yaml script : https://jsonformatter.org/yaml-validator*
+
+![1](https://user-images.githubusercontent.com/101978292/219963839-6e55ae4f-097a-4389-af69-27640b14bcf6.jpg)
 
 #### Step 6-  Connect Ansible in AppServer to ProdServer 
 
