@@ -50,6 +50,9 @@ passwd ec2-user
  vi /etc/ssh/sshd_config
 
 ```
+![1](https://user-images.githubusercontent.com/101978292/219952626-245c97b9-bb23-4a3c-9b9f-4ec17629efb7.jpg)
+
+
 - Restart the sshd file
 ```
 systemctl restart sshd
@@ -57,6 +60,10 @@ systemctl enable sshd
 systemctl status sshd
 
 ```
+
+![2](https://user-images.githubusercontent.com/101978292/219952645-19f90b92-516a-413f-b569-184aa3873dfe.jpg)
+
+
 - switch back to ec2-user
 ```
 su ec2-user
@@ -116,6 +123,9 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME:$MAVEN_HOME:$M2
 export PATH
 
 ```
+![3](https://user-images.githubusercontent.com/101978292/219952746-968d8790-2684-4ea9-b2df-dd33aae87605.jpg)
+
+
 #### Step 4- Install Git
 1. install git
 ```
@@ -137,6 +147,10 @@ git init Project1
 cd Project1
 
 ```
+
+![4](https://user-images.githubusercontent.com/101978292/219952852-dfce900a-a9c2-4d3f-acfe-2d9f81b70e43.jpg)
+
+
 4. Add the repository you are to pull code changes from and build
 
 ```
@@ -161,27 +175,29 @@ sudo yum upgrade
 sudo yum install jenkins
 sudo systemctl daemon-reload
 
-
 ```
 
 
 2. Make sure Jenkins is up and running: 
 
-```
 
+```
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
 
 ```
 
-![2](https://user-images.githubusercontent.com/101978292/217398295-1da2b8e5-ed3d-4548-9ed9-590fe0202cd5.jpg)
+
+
+![5](https://user-images.githubusercontent.com/101978292/219952920-877a8f87-6746-49f7-b6ef-5d0863ae3eb6.jpg)
 
 
 3. By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
 4. Next, setup Jenkins. From your browser access `http://<Jenkins-Server-Public-IP-Address-or-Public-DNS-Name>:8080` You will be prompted to provide a default admin password
 
-![3](https://user-images.githubusercontent.com/101978292/217398321-9491c95d-ef13-4f82-b9b3-1418946836c1.jpg)
+
+![6](https://user-images.githubusercontent.com/101978292/219952990-8b10abf6-57cb-440a-bebc-87d9657c6a74.jpg)
 
 
 5. Retrieve the password from your Jenkins server: 
@@ -190,19 +206,28 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ```
 
-![4](https://user-images.githubusercontent.com/101978292/217398509-208ac4a1-3977-4092-bd1f-d24a2ee50ab5.jpg)
+![7](https://user-images.githubusercontent.com/101978292/219953009-588640f4-480f-4889-a684-d4b86e06b72b.jpg)
+
 
 6. Copy the password from the server and paste on Jenkins setup to unlock Jenkins.
 7. Next, you will be prompted to install plugins – **choose install suggested plugins**
 
 
-![5](https://user-images.githubusercontent.com/101978292/217398696-e4f469a5-71a2-4296-bed5-bf0a8636e18f.jpg)
-![6](https://user-images.githubusercontent.com/101978292/217398705-9584cdaa-baf5-4c98-b1bd-b61a322d3395.jpg)
+![8](https://user-images.githubusercontent.com/101978292/219953213-9bd2c42a-f2c7-4522-b1e8-2c421545f2ed.jpg)
 
+![10](https://user-images.githubusercontent.com/101978292/219953219-fe19725a-f649-4911-811f-cb01e5d982e8.jpg)
 
 8. Once plugins installation is done – create an admin user and you will get your Jenkins server address. **The installation is completed!**
 
-![7](https://user-images.githubusercontent.com/101978292/217398739-039f1102-af55-48af-bb4f-a0568de3987d.jpg)
+
+![11](https://user-images.githubusercontent.com/101978292/219953233-cb7671f6-efd9-4242-a8c2-b24e74d8585e.jpg)
+
+![12](https://user-images.githubusercontent.com/101978292/219953258-667f48bf-d2d1-49de-94d4-dbc819fe2f9b.jpg)
+
+9. Go to Plugin manager and install 
+
+![15](https://user-images.githubusercontent.com/101978292/219954716-3826f4c7-6940-45f1-9bfd-5bc23297c489.jpg)
+
 
 #### Step 5-  Configure Jenkins with the declared variables details. 
 
@@ -224,20 +249,26 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 
 ```
 
+![16](https://user-images.githubusercontent.com/101978292/219953537-1f696dcc-4ab6-4ee8-8052-1eff55a141ad.jpg)
+
+![18](https://user-images.githubusercontent.com/101978292/219953548-f7c9f49a-28e3-4216-84fd-93c0ed542c62.jpg)
+
 2. Go to Jenkins web console, click **New Item** and create a **Freestyle project** name it Project1 and click OK
 3. Connect your GitHub repository, copy the repository URL from the repository
 4. In configuration of your Jenkins freestyle project under Source Code Management select **Git repository**, provide there the link to your Itern GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
 
-![9](https://user-images.githubusercontent.com/101978292/217399139-b719a731-55f6-4340-8ec3-f4ba79957d2b.jpg)
 
-![10](https://user-images.githubusercontent.com/101978292/217399209-47c65df8-2963-47a9-a0cc-89e54727ad36.jpg)
+![19](https://user-images.githubusercontent.com/101978292/219953601-dbf50281-270c-42f1-8b39-fd99aae161ff.jpg)
+
+![20](https://user-images.githubusercontent.com/101978292/219955195-acf2a27d-9fba-40b1-8d9a-501e827a7a94.jpg)
+
 
 5. Save the configuration and let us try to run the build. For now we can only do it manually.
 6. Click **Build Now** button, if you have configured everything correctly, the build will be successfull and you will see it under **#1**
 7. Open the build and check in **Console Output** if it has run successfully.
 
 
-![12](https://user-images.githubusercontent.com/101978292/217399432-7691320a-902d-4302-96a0-616596a9acd5.jpg)
+![21](https://user-images.githubusercontent.com/101978292/219953713-e1cffd0a-55a4-4980-9672-d1905c8d95ac.jpg)
 
 
 8. Click **Configure** your job/project and add and save these two configurations:
@@ -254,4 +285,7 @@ go to the server and check for the  build
  
 `cd /var/lib/jenkins` and find the webapp.war file in the workspace directory then cd into target, 
 
+![22](https://user-images.githubusercontent.com/101978292/219955536-b8926e92-38f8-41d8-98b3-ef3d6469700d.jpg)
+
+![23](https://user-images.githubusercontent.com/101978292/219954474-c18a97d2-87e9-463f-a08b-f7377804db4a.jpg)
 
