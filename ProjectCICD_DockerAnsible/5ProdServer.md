@@ -15,7 +15,6 @@ SERVER REQUIRMENTS:
 - Wget
 - Docker
 
-![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
 
 #### Step 1- Setup Server and create a user password

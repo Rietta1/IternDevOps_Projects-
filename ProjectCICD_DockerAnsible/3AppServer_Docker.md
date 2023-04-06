@@ -18,8 +18,6 @@ SERVER REQUIRMENTS:
 - Tomcat
 - Docker
 
-![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
-
 
 #### Step 1- Setup Server and create a user password
 1. Create an AWS EC2 server based on Redhat9 Server and name it "App Server"
@@ -34,6 +32,9 @@ sudo su
 passwd ec2-user 
 (book1)
 ```
+![1](https://user-images.githubusercontent.com/101978292/219957126-c347d0e4-e1c6-4a23-bf60-64e084d48981.jpg)
+
+
 - Authenticate the password by editting the configuration file `sshd_config` and change the `PasswordAthentication` to yes 
 
 ```
@@ -58,6 +59,7 @@ su ec2-user
 ```
 sudo yum install java-1.8.0-openjdk-devel -y
 ```
+
 #### Step 3- Install Tomcat
 1. Install Wget, since redhat9 doesnt seem to have it installed `sudo yum install wget`
 
@@ -69,12 +71,17 @@ Go to this website   ,copy the link to tar.gz and paste it on your server with s
 ls
 
 ```
+![2](https://user-images.githubusercontent.com/101978292/219957389-4bd943ef-6186-4b80-98fd-b068efe061d1.jpg)
+
+
 - unzip the file just downloaded to your server using `tar -zxvf`
 ```
  tar -zxvf apache-tomcat-10.0.27.tar.gz
  
-
 ```
+![2](https://user-images.githubusercontent.com/101978292/219960759-4c93f081-39cc-4514-a89f-d8e637418020.jpg)
+
+
 
 - Copy the unzipped file to `/opt`
 
@@ -82,13 +89,16 @@ ls
 sudo cp -r apache-tomcat-10.0.27 /opt
 
 ```
-3. Go to the folder `cd /opt/apache-tomcat-10.0.27/bin`
+3. Go to the folder `cd /opt/cd apache-tomcat-10.0.27/bin`
 were tomcat is installed and start it with: `./startup.sh`
+
+![4](https://user-images.githubusercontent.com/101978292/219957305-5a784cd4-1fc0-461f-b22f-f8fa412e22a1.jpg)
+
 
 4. Declare varables of java and Tomcat, for jenkins to easily access when we run the pipeline and build. Open `.bash_profile`
 
 ```
-sudo vi .bash_profile
+sudo vi.bash_profile
 
 ```
 - Paste this delarations underthe line 
@@ -104,8 +114,16 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME:$CATALINA_HOME:$CATALINA_BASE
 
 export PATH
 
-
 ```
+
+![3](https://user-images.githubusercontent.com/101978292/219957240-8b5f7413-40a2-480c-bd92-a00cd2d7b23e.jpg)
+
+5. Go the the <ipaddr:8080> and see if the tomcat is running
+
+
+![5](https://user-images.githubusercontent.com/101978292/219957553-1ba30b6f-ea6b-484d-a100-a9010bb0e302.jpg)
+
+
 #### Step 4- Docker Installation
 
 1. Install Docker
@@ -311,10 +329,6 @@ docker exec -it IternCon /bin/bash
 ```
 
 
-
-
-
-
 #### Step 6- pubish over ssh to Docker 
 
 
@@ -349,6 +363,9 @@ sudo docker run -d --name immacon -p 8080:8080 mattewimage
 
 ```
 
+![d3](https://user-images.githubusercontent.com/101978292/219962166-13c64c5c-7029-4485-b7cf-48e99f5be8ec.jpg)
+
+
 #### Step 5-  Configure Jenkins with the declared variables details. 
 
 1. Go to Setup Global Tool Configuration and on the installations part, add
@@ -370,28 +387,34 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 ```
 
 2. Go to Jenkins web console, click **New Item** and clone Project1 or create a **Freestyle project** name it Project1c and click OK
+
+
+![5](https://user-images.githubusercontent.com/101978292/219958962-c106f8a8-5125-4889-9d82-8175d2583b55.jpg)
+
+
 3. Connect your GitHub repository, copy the repository URL from the repository
+
 4. In configuration of your Jenkins freestyle project under Source Code Management select **Git repository**, provide there the link to your Itern GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
 
-![9](https://user-images.githubusercontent.com/101978292/217399139-b719a731-55f6-4340-8ec3-f4ba79957d2b.jpg)
 
-![10](https://user-images.githubusercontent.com/101978292/217399209-47c65df8-2963-47a9-a0cc-89e54727ad36.jpg)
+![19](https://user-images.githubusercontent.com/101978292/219959178-26e7ce50-be31-4174-9edb-98c199fb93ae.jpg)
+
+
+![20](https://user-images.githubusercontent.com/101978292/219959185-46b02123-4fc8-42ae-b5a0-831944cfee91.jpg)
+
 
 5. Click **Configure** your job/project and add and save these two configurations:
+ 
 
-``` 
 
-Under **Post Build Actions** select Archieve the artifacts and enter `**` in the text box.
-```
-
-6. Save the configuration and let us try to run the build. For now we can only do it manually.
-7. Click **Build Now** button, if you have configured everything correctly, the build will be successfull and you will see it under **#2**
+6. Save the configuration and let us try to run the build. 
+7. Click **Build Now** button, if you have configured everything correctly, the build will be successfull and you will see it under **#3**
 8. Open the build and check in **Console Output** if it has run successfully.
 
 
-![12](https://user-images.githubusercontent.com/101978292/217399432-7691320a-902d-4302-96a0-616596a9acd5.jpg)
 
 
+![d4](https://user-images.githubusercontent.com/101978292/219963075-5b25e5b2-fcf2-4682-8b84-c62279e8f143.jpg)
 
 
 9. By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/webapps.war_github/builds/<build_number>/archive/`

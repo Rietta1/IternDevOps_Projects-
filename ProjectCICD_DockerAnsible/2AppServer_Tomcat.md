@@ -15,7 +15,6 @@ SERVER REQUIRMENTS:
 - Java
 - Tomcat
 
-![Screenshot 2023-02-08 012722](https://user-images.githubusercontent.com/101978292/217397916-0c21b85c-73fa-449a-b23a-a810280d2221.jpg)
 
 
 #### Step 1- Setup Server and create a user password
@@ -31,6 +30,9 @@ sudo su
 passwd ec2-user 
 (book1)
 ```
+![1](https://user-images.githubusercontent.com/101978292/219957126-c347d0e4-e1c6-4a23-bf60-64e084d48981.jpg)
+
+
 - Authenticate the password by editting the configuration file `sshd_config` and change the `PasswordAthentication` to yes 
 
 ```
@@ -55,6 +57,7 @@ su ec2-user
 ```
 sudo yum install java-1.8.0-openjdk-devel -y
 ```
+
 #### Step 3- Install Tomcat
 1. Install Wget, since redhat9 doesnt seem to have it installed `sudo yum install wget`
 
@@ -66,11 +69,17 @@ Go to this website   ,copy the link to tar.gz and paste it on your server with s
 ls
 
 ```
+![2](https://user-images.githubusercontent.com/101978292/219957389-4bd943ef-6186-4b80-98fd-b068efe061d1.jpg)
+
+
 - unzip the file just downloaded to your server using `tar -zxvf`
 ```
  tar -zxvf apache-tomcat-10.0.27.tar.gz
  
 ```
+![2](https://user-images.githubusercontent.com/101978292/219960759-4c93f081-39cc-4514-a89f-d8e637418020.jpg)
+
+
 
 - Copy the unzipped file to `/opt`
 
@@ -80,6 +89,9 @@ sudo cp -r apache-tomcat-10.0.27 /opt
 ```
 3. Go to the folder `cd /opt/cd apache-tomcat-10.0.27/bin`
 were tomcat is installed and start it with: `./startup.sh`
+
+![4](https://user-images.githubusercontent.com/101978292/219957305-5a784cd4-1fc0-461f-b22f-f8fa412e22a1.jpg)
+
 
 4. Declare varables of java and Tomcat, for jenkins to easily access when we run the pipeline and build. Open `.bash_profile`
 
@@ -100,12 +112,20 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME:$CATALINA_HOME:$CATALINA_BASE
 
 export PATH
 
-
 ```
+
+![3](https://user-images.githubusercontent.com/101978292/219957240-8b5f7413-40a2-480c-bd92-a00cd2d7b23e.jpg)
+
+5. Go the the <ipaddr:8080> and see if the tomcat is running
+
+
+![5](https://user-images.githubusercontent.com/101978292/219957553-1ba30b6f-ea6b-484d-a100-a9010bb0e302.jpg)
+
+
 #### Step 4- pubish over ssh to tomcat 
 
 
-1. Go to global configuration and add the server information for publish over ssh
+1. Go to jenkins global configuration and add the server information for publish over ssh
 
 ```
  SSH Servers name: app server
@@ -117,6 +137,14 @@ Passphrase / Password: book1
 then go to Project1b Configuration *POST BUILD ACTION*
 
 ```
+
+![1](https://user-images.githubusercontent.com/101978292/219957595-32e20d33-b284-4801-9ac3-bad666e77b70.jpg)
+
+
+![2](https://user-images.githubusercontent.com/101978292/219957707-bf49b188-a09b-4489-b545-338e19dd1074.jpg)
+
+
+
 pubish over ssh to app server to Tomcat
 project1b
 
@@ -132,6 +160,11 @@ webapp/target
 [Exec command:]
  sudo cp ./webapp.war /opt/apache-tomcat-10.0.27/webapps
 ```
+
+![6](https://user-images.githubusercontent.com/101978292/219957789-f1e84ed5-0d16-47ef-8858-a95d7908e4bb.jpg)
+
+![7](https://user-images.githubusercontent.com/101978292/219957754-cbadcde7-e0f9-452d-a693-3084db78df94.jpg)
+
 
 #### Step 5-  Configure Jenkins with the declared variables details. 
 
@@ -155,23 +188,27 @@ MAVEN_HOME:/opt/apache-maven-3.9.0/
 
 2. Go to Jenkins web console, click **New Item** and clone Project1 or create a **Freestyle project** name it Project1b and click OK
 
+![4](https://user-images.githubusercontent.com/101978292/219958929-032af221-c23e-42a5-a27d-f4b83dbabf67.jpg)
+
+![5](https://user-images.githubusercontent.com/101978292/219958962-c106f8a8-5125-4889-9d82-8175d2583b55.jpg)
+
+
 3. Connect your GitHub repository, copy the repository URL from the repository
 
 4. In configuration of your Jenkins freestyle project under Source Code Management select **Git repository**, provide there the link to your Itern GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
 
 
-![9](https://user-images.githubusercontent.com/101978292/217399139-b719a731-55f6-4340-8ec3-f4ba79957d2b.jpg)
+![19](https://user-images.githubusercontent.com/101978292/219959178-26e7ce50-be31-4174-9edb-98c199fb93ae.jpg)
 
-![10](https://user-images.githubusercontent.com/101978292/217399209-47c65df8-2963-47a9-a0cc-89e54727ad36.jpg)
+
+![20](https://user-images.githubusercontent.com/101978292/219959185-46b02123-4fc8-42ae-b5a0-831944cfee91.jpg)
+
 
 5. Click **Configure** your job/project and add and save these two configurations:
+ 
 
-``` 
 
-Under **Post Build Actions** select Archieve the artifacts and enter `**` in the text box.
-```
-
-6. Save the configuration and let us try to run the build. For now we can only do it manually.
+6. Save the configuration and let us try to run the build. 
 7. Click **Build Now** button, if you have configured everything correctly, the build will be successfull and you will see it under **#2**
 8. Open the build and check in **Console Output** if it has run successfully.
 
@@ -181,10 +218,12 @@ Under **Post Build Actions** select Archieve the artifacts and enter `**` in the
 
 
 
-9. By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/webapps.war_github/builds/<build_number>/archive/`
+9. *By default, the artifacts are stored on Jenkins server locally: `ls /var/lib/jenkins/jobs/webapps.war_github/builds/<build_number>/archive/`*
 
-10. 
-go to the server and check for the  build 
+10. go to the server and check for the  build 
  
 `cd /opt/apache-tomcat-10.0.27/webapps` and find the webapp.war file in the workspace directory then cd into target, 
 
+![8](https://user-images.githubusercontent.com/101978292/219958369-7de4dbd3-ad83-489f-bd76-098378953e9b.jpg)
+
+![9](https://user-images.githubusercontent.com/101978292/219958887-e188333e-db9f-448c-a3f5-4d3ec9f2f2c9.jpg)
